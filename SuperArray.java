@@ -21,11 +21,22 @@ public class SuperArray{
     }
   }
   public String set(int index, String element){
-    if (index<=size){
+    if (index<size){
       data[index]=element;
     }
     else{
       return "No element in this index";
     }
   }
+  private void resize(){
+    String[] larger=new String[data.length+1];
+    for (int i=0;i<data.length;i++){
+      larger[i]=data[i];
+    }
+    String[] data=new String[larger.length];
+    for int(y=0;y<larger.length;y++){
+      data[y]=larger[y]
+    }
+  }
+
 }
