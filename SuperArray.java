@@ -39,4 +39,26 @@ public class SuperArray{
     }
     return true;
   }
+  public void clear(){
+    String[] newer=new String[10];
+    size=0;
+    data=newer;
+  }
+  public String toString(){
+    String str="[";
+    for (int i=0;i<size;i++){
+      if (data[i]!=""){
+        if (i==size-1){
+          str=str+data[i]+"]";
+        }
+        else{
+          str=str+data[i]+", ";
+        }
+      }
+      else{
+        str=str;
+      }
+    }
+    return str;
+  }
 }
