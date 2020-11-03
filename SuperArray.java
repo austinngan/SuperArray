@@ -61,4 +61,11 @@ public class SuperArray{
     }
     return str;
   }
+  public boolean contains(String s){
+    for (int i=0;i<data.length;i++){
+      if (data[i].equals(s)==true);
+        return true;
+    }
+    return false;
+  }
 }
