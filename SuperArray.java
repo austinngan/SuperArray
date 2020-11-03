@@ -13,11 +13,19 @@ public class SuperArray{
     return true;
   }
   public String get(int index){
-    if ((size<index)||(index<0)){
+    if ((index>=size)||(index<0)){
       return "No element in this index";
     }
     else{
       return data[index];
+    }
+  }
+  public String set(int index, String element){
+    if (index<=size){
+      data[index]=element;
+    }
+    else{
+      return "No element in this index";
     }
   }
 }
