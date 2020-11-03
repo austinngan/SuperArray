@@ -25,7 +25,7 @@ public class SuperArray{
     return old;
   }
   private void resize(){
-    String[] larger=new String[data.length+1];
+    String[] larger=new String[data.length*2];
     for (int i=0;i<data.length;i++){
       larger[i]=data[i];
     }
@@ -62,10 +62,15 @@ public class SuperArray{
     return str;
   }
   public boolean contains(String s){
-    for (int i=0;i<data.length;i++){
-      if (data[i].equals(s)==true);
-        return true;
+    if (isEmpty()==true){
+      return false;
     }
-    return false;
+    else{
+      for (int i=0;i<data.length;i++){
+        if (data[i].equals(s)==true);
+          return true;
+        }
+      return false;
+    }
   }
 }
