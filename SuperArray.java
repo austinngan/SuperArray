@@ -92,4 +92,17 @@ public class SuperArray{
       return false;
     }
   }
+  public String remove(int index){
+    String removed=data[index];
+    if (index<0||index>data.length){
+      return "No element at this index";
+    }
+    else{
+      data[index]="";
+      for (int i=index;i<size+1;i++){
+        data[i]=data[i+1];
+      }
+    }
+    return removed;
+  }
 }
