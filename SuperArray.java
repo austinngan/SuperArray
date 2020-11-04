@@ -20,6 +20,21 @@ public class SuperArray{
     size=size+1;
     return true;
   }
+  public void add(int index, String element){
+    if (size>=data.length){
+      resize();
+    }
+    String[] newer=new String[data.length];
+    for (int i=0;i<index;i++){
+      newer[i]=data[i];
+    }
+    size=size+1;
+    for (int y=index;y<size+1;y++){
+      newer[y+1]=data[y];
+    }
+    newer[index]=element;
+    data=newer;
+  }
   public String get(int index){
     return data[index];
   }
