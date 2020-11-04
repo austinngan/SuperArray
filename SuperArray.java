@@ -105,4 +105,14 @@ public class SuperArray{
     }
     return removed;
   }
+  public int indexOf(String s){
+    if (contains(s)==true){
+      for (int i=0;i<data.length;i++){
+        if (data[i].equals(s)){
+          return i;
+        }
+      }
+    }
+    return -1;
+  }
 }
