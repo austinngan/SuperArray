@@ -115,4 +115,16 @@ public class SuperArray{
     }
     return -1;
   }
+  public String[] toArray(){
+    String[] newArray=new String[size];
+    for (int i=0;i<data.length;i++){
+      for (int y=0;y<data.length;y++){
+        if (data[i]!=null&&data[i]!=""){
+          newArray[y]=data[i];
+        }
+        newArray=newArray;
+      }
+    }
+    return newArray;
+  }
 }
