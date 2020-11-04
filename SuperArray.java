@@ -106,10 +106,17 @@ public class SuperArray{
     return removed;
   }
   public int indexOf(String s){
-    if (contains(s)==true){
+    if (contains(s)){
       for (int i=0;i<data.length;i++){
-        if (data[i].equals(s)){
-          return i;
+        if (s==null){
+          if (data[i]==null){
+            return i;
+          }
+        }
+        else{
+          if (s.equals(data[i])){
+            return i;
+          }
         }
       }
     }
