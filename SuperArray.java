@@ -65,8 +65,11 @@ public class SuperArray{
   }
   public String toString(){
     String str="[";
+    if (size==0){
+      return "[]";
+    }
     for (int i=0;i<size;i++){
-      if (data[i]!=""){
+      if (data[i]!=null&&data[i]!=""){
         if (i==size-1){
           str=str+data[i]+"]";
         }
@@ -84,13 +87,17 @@ public class SuperArray{
     if (isEmpty()==true){
       return false;
     }
-    else{
-      for (int i=0;i<data.length;i++){
-        if (data[i].equals(s)==true);
+    for (int i=0;i<data.length;i++){
+      if (s==null){
+        if (data[i]==null){
           return true;
         }
-      return false;
+      }
+      if (data[i].equals(s)){
+        return true;
+      }
     }
+    return false;
   }
   public String remove(int index){
     String removed=data[index];
@@ -106,22 +113,18 @@ public class SuperArray{
     return removed;
   }
   public int indexOf(String s){
-    if (contains(s)){
-      for (int i=0;i<data.length;i++){
-        if (s==null){
-          if (data[i]==null){
-            return i;
-          }
-        }
-        else{
-          if (s.equals(data[i])){
-            return i;
-          }
+    for (int i=0;i<data.length;i++){
+      if (s==null){
+        if (data[i]==null){
+          return i;
         }
       }
+      if (s.equals(data[i])==true){
+          return i;
+        }
+      }
+      return -1;
     }
-    return -1;
-  }
   public String[] toArray(){
     String[] newArray=new String[size];
     for (int i=0;i<data.length;i++){
