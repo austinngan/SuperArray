@@ -91,7 +91,7 @@ public class SuperArray{
     for (int i=0;i<data.length;i++){
       if (s==null){
         if (data[i]==null){
-          return true;
+          return false;
         }
       }
       else{
