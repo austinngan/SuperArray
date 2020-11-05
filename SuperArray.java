@@ -21,10 +21,14 @@ public class SuperArray{
     return true;
   }
   public void add(int index, String element){
+    if (index<0||index>=size){
+      data=data;
+    }
     if (size>=data.length){
       resize();
     }
     String[] newer=new String[data.length];
+
     for (int i=0;i<index;i++){
       newer[i]=data[i];
     }
@@ -52,7 +56,7 @@ public class SuperArray{
   }
   public boolean isEmpty(){
     for (int i=0;i<data.length;i++){
-      if (data[i]!=""){
+      if (data[i]!=null){
         return false;
       }
     }
@@ -84,17 +88,18 @@ public class SuperArray{
     return str;
   }
   public boolean contains(String s){
-    if (isEmpty()==true){
-      return false;
-    }
     for (int i=0;i<data.length;i++){
       if (s==null){
         if (data[i]==null){
           return true;
         }
       }
-      if (data[i].equals(s)){
-        return true;
+      else{
+        if (s!=null&&data[i]!=null){
+          if (data[i].equals(s)){
+            return true;
+          }
+        }
       }
     }
     return false;
@@ -102,24 +107,28 @@ public class SuperArray{
   public String remove(int index){
     String removed=data[index];
     if (index<0||index>data.length){
-      return "No element at this index";
+      return "Index out of bounds";
     }
     else{
-      data[index]="";
+      data[index]=null;
       for (int i=index;i<size+1;i++){
         data[i]=data[i+1];
       }
+      size=size-1;
     }
     return removed;
   }
   public int indexOf(String s){
+    if (isEmpty()){
+      return -1;
+    }
     for (int i=0;i<data.length;i++){
       if (s==null){
         if (data[i]==null){
           return i;
         }
       }
-      if (s.equals(data[i])==true){
+      if (s!=null&&s.equals(data[i])){
           return i;
         }
       }
@@ -127,12 +136,11 @@ public class SuperArray{
     }
   public String[] toArray(){
     String[] newArray=new String[size];
+    int indexCount=0;
     for (int i=0;i<data.length;i++){
-      for (int y=0;y<data.length;y++){
-        if (data[i]!=null&&data[i]!=""){
-          newArray[y]=data[i];
-        }
-        newArray=newArray;
+      if (data[i]!=null&&data[i]!=""){
+        newArray[indexCount]=data[i];
+        indexCount+=1;
       }
     }
     return newArray;
