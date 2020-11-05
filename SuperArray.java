@@ -125,7 +125,7 @@ public class SuperArray{
     for (int i=0;i<data.length;i++){
       if (s==null){
         if (data[i]==null){
-          return i;
+          return -1;
         }
       }
       if (s!=null&&s.equals(data[i])){
