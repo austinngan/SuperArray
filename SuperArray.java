@@ -21,23 +21,19 @@ public class SuperArray{
     return true;
   }
   public void add(int index, String element){
+    if (data.length==size()){
+      resize();
+    }
     if (index<0||index>=size){
       data=data;
     }
-    if (size>=data.length){
-      resize();
+    for (int i=size();i>0;i--){
+      if (i>index){
+        data[i]=data[i-1];
+      }
     }
-    String[] newer=new String[data.length];
-
-    for (int i=0;i<index;i++){
-      newer[i]=data[i];
-    }
-    size=size+1;
-    for (int y=index;y<size+1;y++){
-      newer[y+1]=data[y];
-    }
-    newer[index]=element;
-    data=newer;
+    data[index]=element;
+    size++;
   }
   public String get(int index){
     return data[index];
@@ -105,11 +101,12 @@ public class SuperArray{
     return false;
   }
   public String remove(int index){
-    String removed=data[index];
-    if (index<0||index>data.length){
+    String removed="";
+    if (index<0||index>=size){
       return "Index out of bounds";
     }
     else{
+      removed=data[index];
       data[index]=null;
       for (int i=index;i<size+1;i++){
         data[i]=data[i+1];
