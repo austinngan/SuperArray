@@ -152,4 +152,17 @@ public class SuperArray{
     }
     return -1;
   }
+  public boolean equals(SuperArray other){
+    String[] original=toArray();
+    String[] newArray=other.toArray();
+    if (original.length!=newArray.length){
+      return false;
+    }
+    for (int i=0;i<original.length;i++){
+      if (original[i].equals(newArray[i])==false){
+        return false;
+      }
+    }
+    return true;
+  }
 }
