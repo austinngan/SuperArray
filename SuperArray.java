@@ -143,10 +143,7 @@ public class SuperArray{
   }
   public int lastIndexOf(String value){
     for (int i=size();i>=0;i--){
-      if (get(i)==null){
-        return -1;
-      }
-      if (get(i).equals(value)){
+      if (get(i)!=null&&get(i).equals(value)){
         return i;
       }
     }
