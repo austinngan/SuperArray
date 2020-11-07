@@ -31,4 +31,27 @@ public class Demo{
     removeDuplicates(c);
     return c;
   }
+  public static SuperArray zip(SuperArray a, SuperArray b){
+    int smaller=Math.min(a.size(),b.size());
+    int larger=Math.max(a.size(),b.size());
+    SuperArray merged=new SuperArray();
+    for (int i=0;i<smaller;i++){
+      merged.add(a.get(i));
+      merged.add(b.get(i));
+    }
+    if (a.size()==b.size()){
+      return merged;
+    }
+    if (a.size()>b.size()){
+      for (int y=smaller;y<larger;y++){
+        merged.add(a.get(y));
+      }
+    }
+    else{
+      for (int z=smaller;z<larger;z++){
+        merged.add(b.get(z));
+      }
+    }
+    return merged;
+  }
 }
