@@ -102,18 +102,17 @@ public class SuperArray{
   }
   public String remove(int index){
     String removed="";
-    if (index<0||index>=size){
+    if (index<0||index>=size()){
       return "Index out of bounds";
     }
     else{
       removed=data[index];
-      data[index]=null;
-      for (int i=index;i<size+1;i++){
+      for (int i=index;i<size();i++){
         data[i]=data[i+1];
       }
       size=size-1;
+      return removed;
     }
-    return removed;
   }
   public int indexOf(String s){
     if (isEmpty()){
