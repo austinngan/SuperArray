@@ -150,7 +150,7 @@ public class SuperArray{
     return newArray;
   }
   public int lastIndexOf(String value){
-    for (int i=size();i>=0;i--){
+    for (int i=size()-1;i>=0;i--){
       if (get(i)!=null&&get(i).equals(value)){
         return i;
       }
