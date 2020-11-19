@@ -27,13 +27,18 @@ public class SuperArray{
     if (index<0||index>size()){
       throw new IndexOutOfBoundsException("Index "+index+" out of range");
     }
-    for (int i=size();i>0;i--){
-      if (i>index){
+    if (size==data.length){
+      resize();
+    }
+    for (int i=size();i>=index;i--){
+      if (i==index){
+        data[i]=element;
+        size++;
+      }
+      else{
         data[i]=data[i-1];
       }
     }
-    data[index]=element;
-    size++;
   }
   public String get(int index){
     if (index<0||index>=size()){
@@ -115,7 +120,7 @@ public class SuperArray{
     }
     else{
       removed=data[index];
-      for (int i=index;i<size();i++){
+      for (int i=index;i<size()-1;i++){
         data[i]=data[i+1];
       }
       size=size-1;
